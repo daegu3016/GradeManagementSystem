@@ -17,7 +17,7 @@ public class MenuManager {
 			System.out.println("3. Edit Grades");
 			System.out.println("4. View Grades");
 			System.out.println("5. Exit");
-			System.out.print("Select one number between 1-6 : ");
+			System.out.print("Select one number between 1-5 : ");
 			num = input.nextInt();
 			
 			if (num == 1) {
