@@ -1,6 +1,7 @@
 package Subject;
 
 public enum SubjectKind {
-	Major,
+	RequiredMajor,
+	OptionalMajor,
 	Cultural
 }

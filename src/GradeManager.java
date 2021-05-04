@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Subject.MajorSubject;
+import Subject.OptionalMajorSubject;
+import Subject.RequiredMajorSubject;
 import Subject.Subject;
+import Subject.SubjectKind;
 
 
 public class GradeManager {
@@ -17,18 +19,25 @@ public class GradeManager {
 		int kind = 0;
 		Subject subject;
 		while(kind != 1 && kind !=2) {
-			System.out.println("1 for Major");
-			System.out.println("2 for Cultural");
+			System.out.println("1 for Required Major");
+			System.out.println("2 for Optional Major");
+			System.out.println("3 for Cultural");
 			System.out.print("Select number for Subject kind: ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				subject = new MajorSubject();
+				subject = new RequiredMajorSubject(SubjectKind.RequiredMajor);
 				subject.getUserInput(input);
 				subjects.add(subject);
 				break;
 			}
 			else if (kind == 2) {
-				subject = new Subject();
+				subject = new OptionalMajorSubject(SubjectKind.OptionalMajor);
+				subject.getUserInput(input);
+				subjects.add(subject);
+				break;
+			}
+			else if (kind == 3) {
+				subject = new Subject(SubjectKind.Cultural);
 				subject.getUserInput(input);
 				subjects.add(subject);
 				break;
@@ -70,8 +79,9 @@ public class GradeManager {
 				while(num != 3) {
 					System.out.println("=====Subject Info Edit Menu=====");
 					System.out.println("1. Edit Subject Name");
-					System.out.println("2. Edit Subject Grade");
-					System.out.println("3. Exit");
+					System.out.println("2. Edit Subject Credit");
+					System.out.println("3. Edit Subject Grade");
+					System.out.println("4. Exit");
 					System.out.print("Select one number between 1-3 : ");
 					num = input.nextInt();
 					if (num == 1) {
@@ -79,7 +89,12 @@ public class GradeManager {
 						String name = input.next();
 						subject.setName(name);
 					}
-					else if (num == 2) {
+					else if (num ==2) {
+						System.out.print("Subject credit: ");
+						float credit = input.nextFloat();
+						subject.setCredit(credit);
+					}
+					else if (num == 3) {
 						System.out.print("Subject score: ");
 						float score = input.nextFloat();
 						subject.setScore(score);

@@ -2,9 +2,14 @@ package Subject;
 
 import java.util.Scanner;
 
-public class MajorSubject extends Subject {
+public class RequiredMajorSubject extends Subject {
+	
+	public RequiredMajorSubject (SubjectKind kind) {
+		super(kind);
+	}
+	
 	public void getUserInput(Scanner input) {
-		System.out.print("Subject name: ");
+		System.out.print("Required Major Subject name: ");
 		String name = input.next();
 		this.setName(name);
 		
@@ -13,12 +18,16 @@ public class MajorSubject extends Subject {
 			System.out.print("Is it a subject with score?(Y/N): ");
 			answer = input.next().charAt(0);
 			if(answer == 'y' || answer == 'Y') {
+				System.out.print("Subject credit: ");
+				float credit = input.nextFloat();
+				this.setCredit(credit);
 				System.out.print("Subject score(ex. A+:4.5 , A0:4.0): ");
 				float score = input.nextFloat();
 				this.setScore(score);
 				break;
 			}
 			else if (answer == 'n' || answer == 'N') {
+				this.setCredit(1);
 				this.setScore(0);
 				break;
 			}
