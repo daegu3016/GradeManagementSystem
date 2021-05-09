@@ -2,7 +2,7 @@ package Subject;
 
 import java.util.Scanner;
 
-public class RequiredMajorSubject extends Subject {
+public class RequiredMajorSubject extends Subject implements SubjectInput {
 	
 	public RequiredMajorSubject (SubjectKind kind) {
 		super(kind);
@@ -32,5 +32,22 @@ public class RequiredMajorSubject extends Subject {
 				break;
 			}
 		}
+	}
+	
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case RequiredMajor:
+			skind = "RequiredMajor";
+			break;
+		case OptionalMajor:
+			skind = "OptionalMajor";
+			break;
+		case Cultural:
+			skind = "Cultural";
+			break;
+		default:
+		}
+		System.out.println("Kind:" + skind + " Subject:"+ name +" Credit:" + credit + " Score:" + score);
 	}
 }

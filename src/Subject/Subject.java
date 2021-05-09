@@ -2,7 +2,7 @@ package Subject;
 
 import java.util.Scanner;
 
-public class Subject {
+public abstract class Subject {
 	protected SubjectKind kind = SubjectKind.RequiredMajor;
 	protected String name;
 	protected float credit;
@@ -59,34 +59,5 @@ public class Subject {
 		this.credit = credit;
 		this.score = score;
 	}
-	
-	
-	public void printInfo() {
-		String skind = "none";
-		switch(this.kind) {
-		case RequiredMajor:
-			skind = "RequiredMajor";
-			break;
-		case OptionalMajor:
-			skind = "OptionalMajor";
-			break;
-		case Cultural:
-			skind = "Cultural";
-			break;
-		default:
-		}
-		System.out.println("Kind:" + skind + " Subject:"+ name +" Credit:" + credit + " Score:" + score);
-	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("Subject name: ");
-		String name = input.next();
-		this.setName(name);
-		System.out.print("Credit: ");
-		float credit = input.nextFloat();
-		this.setCredit(credit);
-		System.out.print("Subject score(ex. A+:4.5 , A0:4.0): ");
-		float score = input.nextFloat();
-		this.setScore(score);
-	}
+	public abstract void printInfo();
 }
