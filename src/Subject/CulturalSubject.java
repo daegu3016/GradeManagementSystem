@@ -2,41 +2,35 @@ package Subject;
 
 import java.util.Scanner;
 
-public class CulturalSubject extends Subject implements SubjectInput{
+import exception.CreditFormatException;
+
+public class CulturalSubject extends Subject {
 	
 	public CulturalSubject (SubjectKind kind) {
 		super(kind);
 	}
 	
 	public void getUserInput(Scanner input) {
-		System.out.print("Subject name: ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Credit: ");
-		float credit = input.nextFloat();
-		this.setCredit(credit);
-		
-		System.out.print("Subject score(ex. A+:4.5 , A0:4.0): ");
-		float score = input.nextFloat();
-		this.setScore(score);
+		setSubjectName(input);
+		setSubjectCredit(input);
+		setSubjectScore(input);
 	}
 	
 	public void printInfo() {
-		String skind = "none";
-		switch(this.kind) {
-		case RequiredMajor:
-			skind = "RequiredMajor";
-			break;
-		case OptionalMajor:
-			skind = "OptionalMajor";
-			break;
-		case Cultural:
-			skind = "Cultural";
-			break;
-		default:
-		}
+		String skind = getKindString();
 		System.out.println("Kind:" + skind + " Subject:"+ name +" Credit:" + credit + " Score:" + score);
+	}
+
+	@Override
+	public void setCredit(float credit) throws CreditFormatException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setSubjectScorewithYN(Scanner input) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
