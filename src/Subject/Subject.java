@@ -1,10 +1,16 @@
 package Subject;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.CreditFormatException;
 
-public abstract class Subject implements SubjectInput{
+public abstract class Subject implements SubjectInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6520318483034530195L;
+	
 	protected SubjectKind kind = SubjectKind.RequiredMajor;
 	protected String name;
 	protected String credit;

@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,9 +10,14 @@ import Subject.SubjectInput;
 import Subject.SubjectKind;
 
 
-public class GradeManager {
+public class GradeManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5365734107720301291L;
+	
 	ArrayList<SubjectInput> subjects = new ArrayList<SubjectInput>();
-	Scanner input;
+	transient Scanner input;
 	
 	GradeManager(Scanner input){
 		this.input = input;

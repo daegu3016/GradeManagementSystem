@@ -1,0 +1,2 @@
+5월 24, 2021 1:33:44 오후 log.EventLogger log
+정보: view subject
