@@ -1,3 +1,4 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,6 +7,7 @@ import java.util.Scanner;
 import Subject.CulturalSubject;
 import Subject.OptionalMajorSubject;
 import Subject.RequiredMajorSubject;
+import Subject.Subject;
 import Subject.SubjectInput;
 import Subject.SubjectKind;
 
@@ -133,6 +135,13 @@ public class GradeManager implements Serializable {
 		}
 	}
 	
+	public int size() {
+		return subjects.size();
+	}
+	
+	public SubjectInput get(int index) {
+		return (Subject) subjects.get(index);
+	}
 	public void showEditMenu() {
 		System.out.println("=====Subject Info Edit Menu=====");
 		System.out.println("1. Edit Subject Name");

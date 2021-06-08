@@ -1,4 +1,4 @@
-package Subject;
+ package Subject;
 
 import java.util.Scanner;
 
@@ -7,6 +7,10 @@ import exception.CreditFormatException;
 public interface SubjectInput {
 	
 	public String getName();
+	
+	public String getCredit();
+	
+	public float getScore();
 	
 	public void setName(String name);
 	
