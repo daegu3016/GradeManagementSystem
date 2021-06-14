@@ -21,7 +21,7 @@ public class WindowFrame extends JFrame{
 		
 		this.grademanager = grademanager;
 		menuselection = new MenuSelection(this);
-		gradeadder = new GradeAdder(this);
+		gradeadder = new GradeAdder(this, this.grademanager);
 		gradeviewer = new GradeViewer(this, this.grademanager);
 		
 		

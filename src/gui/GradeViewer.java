@@ -17,6 +17,35 @@ public class GradeViewer extends JPanel{
 	
 	GradeManager grademanager;
 	
+	public GradeManager getGrademanager() {
+		return grademanager;
+	}
+
+	public void setGrademanager(GradeManager grademanager) {
+		this.grademanager = grademanager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Subject Name");
+		model.addColumn("Credit");
+		model.addColumn("Score");
+		
+		for(int i=0; i< grademanager.size();i++) {
+			Vector row = new Vector();
+			SubjectInput si= grademanager.get(i);
+			row.add(si.getName());
+			row.add(si.getCredit());
+			row.add(si.getScore());
+			model.addRow(row);
+		}
+		
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp);
+	}
+	
 	public GradeViewer(WindowFrame frame, GradeManager grademanager) {
 		this.frame = frame;
 		this.grademanager = grademanager;
@@ -44,5 +73,4 @@ public class GradeViewer extends JPanel{
 		this.add(sp);
 		
 	}
-
 }

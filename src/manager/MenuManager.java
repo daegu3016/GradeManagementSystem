@@ -79,7 +79,6 @@ public class MenuManager {
 	public static GradeManager getObject(String filename) {
 		GradeManager grademanager = null;
 		
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -98,13 +97,10 @@ public class MenuManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return grademanager;
-		
 	}
 	
 	public static void putObject(GradeManager grademanager, String filename) {
-		
 		try {
 			FileOutputStream file = new FileOutputStream(filename);
 			ObjectOutputStream out = new ObjectOutputStream(file);

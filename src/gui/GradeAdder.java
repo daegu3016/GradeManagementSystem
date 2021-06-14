@@ -7,12 +7,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import event.GradeAdderCancelListener;
+import event.GradeAdderListener;
+import manager.GradeManager;
+
 public class GradeAdder extends JPanel{
 	
 	WindowFrame frame;
-	
-	public GradeAdder(WindowFrame frame) {
+
+	GradeManager grademanager;
+
+	public GradeAdder(WindowFrame frame, GradeManager grademanager) {
 		this.frame = frame;
+		this.grademanager = grademanager;
+
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -32,17 +40,23 @@ public class GradeAdder extends JPanel{
 		JLabel labelScore = new JLabel("Score: ",JLabel.TRAILING);
 		JTextField fieldScore = new JTextField(10);
 		labelScore.setLabelFor(fieldScore);
+		
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new GradeAdderListener(fieldSName, fieldCredit, fieldScore, grademanager));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new GradeAdderCancelListener(frame));
 		panel.add(labelScore);
 		panel.add(fieldScore);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		SpringUtilities.makeCompactGrid(panel,  4,  2, 6, 6, 6, 6);
 		
 		
 		
 		this.add(panel);
-		this.setVisible(true);
+		this.setVisible(true);  
 	}
 	
 }

@@ -24,7 +24,16 @@ public class GradeManager implements Serializable {
 	GradeManager(Scanner input){
 		this.input = input;
 	}
+
+	public void addSubject(String name, String credit, String score) {
+		SubjectInput subjectInput = new RequiredMajorSubject(SubjectKind.RequiredMajor);
+		subjectInput.getUserInput(input);
+		subjects.add(subjectInput);
+	}
 	
+	public void addSubject(SubjectInput subjectInput) {
+		subjects.add(subjectInput);
+	}
 	public void addSubject() {
 		int kind = -1;
 		SubjectInput subjectInput;

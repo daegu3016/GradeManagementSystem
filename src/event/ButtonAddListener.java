@@ -1,10 +1,7 @@
-package listeners;
+package event;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-
-import gui.GradeAdder;
 import gui.WindowFrame;
 
 public class ButtonAddListener implements ActionListener {
@@ -17,10 +14,10 @@ public class ButtonAddListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton b = (JButton) e.getSource();
-		GradeAdder adder = frame.getGradeadder();
-		frame.setupPanel(adder);
-
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(frame.getGradeadder());
+		frame.revalidate();
+		frame.repaint();
 	}
 
 }
